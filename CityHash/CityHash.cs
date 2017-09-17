@@ -230,7 +230,7 @@ namespace CityHash
             return CityHash32(encoding.GetBytes(s));
         }
 
-        private static uint32 CityHash32(byte[] s)
+        public static uint32 CityHash32(byte[] s)
         {
             uint len = (uint) s.Length;
             if (len <= 24)
@@ -434,7 +434,7 @@ namespace CityHash
             return CityHash64(encoding.GetBytes(s));
         }
 
-        private static uint64 CityHash64(byte[] s)
+        public static uint64 CityHash64(byte[] s)
         {
             int len = s.Length;
             if (len <= 32)
@@ -494,7 +494,7 @@ namespace CityHash
             return CityHash64WithSeed(encoding.GetBytes(s), seed);
         }
 
-        private static uint64 CityHash64WithSeed(byte[] s, uint64 seed)
+        public static uint64 CityHash64WithSeed(byte[] s, uint64 seed)
         {
             return CityHash64WithSeeds(s, K2, seed);
         }
@@ -513,7 +513,7 @@ namespace CityHash
             return CityHash64WithSeeds(encoding.GetBytes(s), seed0, seed1);
         }
 
-        private static uint64 CityHash64WithSeeds(byte[] s, uint64 seed0, uint64 seed1)
+        public static uint64 CityHash64WithSeeds(byte[] s, uint64 seed0, uint64 seed1)
         {
             return HashLen16(CityHash64(s) - seed0, seed1);
         }
